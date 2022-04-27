@@ -9,3 +9,4 @@ This branch will be used for adding a user authentication system using SQL. It w
 - SQL DB Helper Class --> UserDBHelper
 - Sign out functionality
 - Differentiation between student, teacher, and admin accounts
+- Firebase GMail User Authentication (for Bronx Science GMail accounts)
