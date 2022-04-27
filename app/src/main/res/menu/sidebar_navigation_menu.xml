@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_busTimes"
+        android:title="Bus Times"
+        />
+    <item
+        android:id="@+id/navigation_schoolFood"
+        android:title="School Food Menu"
+        />
+    <item
+        android:id="@+id/navigation_schoolNews"
+        android:title="School News"
+        />
+    <item
+        android:id="@+id/navigation_eventReminders"
+        android:title="Event Reminders"
+        />
+    <item
+        android:id="@+id/navigation_majorSelection"
+        android:title="Major Selection"
+        />
+    <item
+        android:id="@+id/navigation_outsideFood"
+        android:title="Food Near Me"
+        />
+</menu>
