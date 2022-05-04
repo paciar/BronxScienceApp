@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "998763137501",
+    "project_id": "bronxscienceapp",
+    "storage_bucket": "bronxscienceapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998763137501:android:e1f9407a0512360ce38e34",
+        "android_client_info": {
+          "package_name": "com.example.android.bronxscienceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998763137501-m86cinptu3kv4pb8vdevn4j0tkhc8nr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO0-pAO5WqQ28PQNmBwGdZDKj9kN5817s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998763137501-m86cinptu3kv4pb8vdevn4j0tkhc8nr1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
