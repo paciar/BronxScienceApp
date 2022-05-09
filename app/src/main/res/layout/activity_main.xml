@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/drawerLayout">
+    android:id="@+id/drawerLayout"
+    android:background="@drawable/login_screen">
+
+    <!-- FRONT END DESIGN WIP -->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bxsci_logo"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bxsci_logo"/>
 
     <TextView
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:gravity="center"
-        android:layout_above="@id/google"
+        android:layout_below="@id/bxsci_logo"
         android:layout_marginBottom="15dp"
-        />
+        android:gravity="center"
+        android:text="Log in with your Bronx Science Gmail"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/google"
         android:layout_centerInParent="true"
-        android:id="@+id/google" />
+        android:id="@+id/google"
+        android:layout_below="@id/login"/>
+
+    <!-- Bottom Text Credits (WIP)
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="App Development 2022"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
+    -->
 
 </RelativeLayout>

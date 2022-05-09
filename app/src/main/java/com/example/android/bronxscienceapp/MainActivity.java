@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
             try {
                 task.getResult(ApiException.class);
                 HomeActivity();
+                Toast.makeText(this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
             } catch (ApiException e) {
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error trying to log in.", Toast.LENGTH_SHORT).show();
             }
         }
     }
