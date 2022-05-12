@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 task.getResult(ApiException.class);
                 HomeActivity();
                 Toast.makeText(this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
+                finish();
+                Log.i("MainActivityFinished", "MainActivity has been finished.");
             } catch (ApiException e) {
                 Toast.makeText(this, "Error trying to log in.", Toast.LENGTH_SHORT).show();
             }

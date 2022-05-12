@@ -38,9 +38,12 @@ public class HomeActivity extends AppCompatActivity {
 
         sBottomNavigationView =findViewById(R.id.bottom_navigation);
 
+        /*
         mName = findViewById(R.id.name);
         mMail = findViewById(R.id.mail);
         mLogout = findViewById(R.id.logout);
+         */
+
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
@@ -49,17 +52,20 @@ public class HomeActivity extends AppCompatActivity {
         if (account != null) {
             String name = account.getDisplayName();
             String mail = account.getEmail();
-
+            /*
             mName.setText(name);
             mMail.setText(mail);
+             */
         }
 
+        /*
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signOut();
             }
         });
+         */
 
         // When HomeActivity is started, it should open HomeFragment by default.
 
@@ -73,6 +79,7 @@ public class HomeActivity extends AppCompatActivity {
         sBottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
@@ -85,6 +92,7 @@ public class HomeActivity extends AppCompatActivity {
                         selectedFragment = TeacherSchedulesFragment.newInstance("","");
                         break;
                 }
+
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_container, selectedFragment);
                 transaction.commitAllowingStateLoss();
