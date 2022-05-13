@@ -20,4 +20,49 @@
         />
     <!-- MAIN NAVIGATION BAR-->
 
+    <!-- TESTING
+
+    -WIP-
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/sidebar_navigation_menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    -WIP-
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Name"
+        android:textSize="25sp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mail"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:id="@+id/mail"
+        android:layout_below="@id/name"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mail"
+        android:padding="10dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Log Out"
+        android:id="@+id/logout"
+        android:layout_marginTop="15dp" />
+
+    -->
+
 </RelativeLayout>

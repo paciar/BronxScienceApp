@@ -1,12 +1,28 @@
 package com.example.android.bronxscienceapp;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.android.bronxscienceapp.Adapter.FeedAdapter;
+import com.example.android.bronxscienceapp.Common.HTTPDataHandler;
+import com.example.android.bronxscienceapp.Model.RSSObject;
+import com.google.gson.Gson;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +30,14 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    androidx.appcompat.widget.Toolbar mToolbar;
+    RecyclerView mRecyclerView;
+    RSSObject mRSSObject;
+
+    //RSS Link
+    private final String RSS_link = "https://bxscience.edu/apps/events2/events_rss.jsp?id=0";
+    private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +82,64 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        mToolbar.setTitle("Calendar");
+        ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
+
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext(), LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+
+        loadRSS();
+
+        return view;
+    }
+
+    private void loadRSS() {
+        AsyncTask<String, String, String> loadRSSAsync = new AsyncTask<String, String, String>() {
+
+            ProgressDialog mDialog = new ProgressDialog(getActivity());
+
+            @Override
+            protected void onPreExecute() {
+                mDialog.setMessage("Please wait...");
+                mDialog.show();
+            }
+
+            @Override
+            protected String doInBackground(String... strings) {
+                String result;
+                HTTPDataHandler http = new HTTPDataHandler();
+                result = http.GetHTTPData(strings[0]);
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                mDialog.dismiss();
+                mRSSObject = new Gson().fromJson(s, RSSObject.class);
+                FeedAdapter adapter = new FeedAdapter(mRSSObject, getActivity().getBaseContext());
+                mRecyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+        };
+
+        StringBuilder url_get_data = new StringBuilder(RSS_to_Json_API);
+        url_get_data.append(RSS_link);
+        loadRSSAsync.execute(url_get_data.toString());
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        getActivity().getMenuInflater().inflate(R.menu.main_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_refresh)
+            loadRSS();
+        return true;
     }
 }
