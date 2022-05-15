@@ -1,19 +1,22 @@
 package com.example.android.bronxscienceapp;
 
-import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CoursesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CoursesFragment extends Fragment {
+    private Button mAddButton;
+    private CourseHelper mDatabase;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,9 +59,36 @@ public class CoursesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_courses, container, false);
+
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
+        View view=inflater.inflate(R.layout.fragment_courses, container,false);
+        RecyclerView recyclerView=(RecyclerView) view.findViewById(R.id.listRecyclerView);
+        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+
+        mDatabase = new CourseHelper(getActivity());
+        ArrayList<Course> allCourses = mDatabase.getCourseList();
+        boolean empty=allCourses.isEmpty();
+        if (!empty) {
+            recyclerView.setVisibility(View.VISIBLE);
+            ListAdapter mAdapter = new ListAdapter(allCourses,getActivity());
+            recyclerView.setAdapter(mAdapter);
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
+            Toast.makeText(getActivity(), "No courses yet", Toast.LENGTH_LONG).show();
+        }
+
+        mAddButton = (Button) view.findViewById(R.id.add_button);
+        mAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: fix back button
+                Intent intent=new Intent(getActivity(),AddCourse.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 }
