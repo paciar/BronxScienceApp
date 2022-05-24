@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.Model;
+package com.example.android.bronxscienceapp.NEWS_Model;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class RSSObject
     }
 
     public List<Item> getItems() {
-        return items;
+        return items; // only returning 10 items
     }
 
     public void setItems(List<Item> items) {
