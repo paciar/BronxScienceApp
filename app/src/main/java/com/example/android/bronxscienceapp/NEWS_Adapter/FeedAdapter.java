@@ -1,8 +1,9 @@
-package com.example.android.bronxscienceapp.Adapter;
+package com.example.android.bronxscienceapp.NEWS_Adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.bronxscienceapp.Interface.ItemClickListener;
-import com.example.android.bronxscienceapp.Model.Feed;
-import com.example.android.bronxscienceapp.Model.Item;
-import com.example.android.bronxscienceapp.Model.RSSObject;
+import com.example.android.bronxscienceapp.NEWS_Interface.ItemClickListener;
+import com.example.android.bronxscienceapp.NEWS_Model.RSSObject;
 import com.example.android.bronxscienceapp.R;
 
 class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -74,12 +73,14 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
         holder.txtTitle.setText(mRSSObject.getItems().get(position).getTitle());
         holder.txtPubDate.setText(mRSSObject.getItems().get(position).getPubDate());
         holder.txtContent.setText(mRSSObject.getItems().get(position).getContent());
+        Log.i("RSSOBJECTLISTCHECK", mRSSObject.getItems().toString()); // only 10 items are being stored
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
                 if (!isLongClick) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mRSSObject.getItems().get(position).getLink()));
+                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(browserIntent);
                 }
             }

@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.Common;
+package com.example.android.bronxscienceapp.NEWS_Common;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

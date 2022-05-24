@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.Interface;
+package com.example.android.bronxscienceapp.NEWS_Interface;
 
 import android.view.View;
 

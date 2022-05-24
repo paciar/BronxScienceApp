@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.Model;
+package com.example.android.bronxscienceapp.NEWS_Model;
 
 import java.util.List;
 
