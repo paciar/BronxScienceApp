@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.NEWS_Model;
+package com.example.android.bronxscienceapp.CALENDAR_Model;
 
 public class Feed
 {

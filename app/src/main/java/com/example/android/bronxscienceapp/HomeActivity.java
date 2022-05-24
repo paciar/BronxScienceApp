@@ -67,10 +67,10 @@ public class HomeActivity extends AppCompatActivity {
         });
          */
 
-        // When HomeActivity is started, it should open NewsFragment by default.
+        // When HomeActivity is started, it should open CalendarFragment by default.
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_container, NewsFragment.newInstance("", ""));
+        fragmentTransaction.replace(R.id.frame_container, CalendarFragment.newInstance("", ""));
         fragmentTransaction.commit();
 
         View view = sBottomNavigationView.findViewById(R.id.navigation_home);
@@ -83,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        selectedFragment = NewsFragment.newInstance("","");
+                        selectedFragment = CalendarFragment.newInstance("","");
                         break;
                     case R.id.navigation_courses:
                         selectedFragment = CoursesFragment.newInstance("","");
