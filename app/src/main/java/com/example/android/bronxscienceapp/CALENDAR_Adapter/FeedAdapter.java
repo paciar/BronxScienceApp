@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.NEWS_Adapter;
+package com.example.android.bronxscienceapp.CALENDAR_Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.bronxscienceapp.NEWS_Interface.ItemClickListener;
-import com.example.android.bronxscienceapp.NEWS_Model.RSSObject;
+import com.example.android.bronxscienceapp.CALENDAR_Interface.ItemClickListener;
+import com.example.android.bronxscienceapp.CALENDAR_Model.RSSObject;
 import com.example.android.bronxscienceapp.R;
 
 class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
