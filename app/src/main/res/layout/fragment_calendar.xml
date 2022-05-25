@@ -3,23 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CalendarFragment">
 
-    <androidx.appcompat.widget.Toolbar
+    <!-- DROP DOWN MENU-->
+    <Spinner
+        android:id="@+id/feed"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:titleTextColor="@android:color/white"
+        android:layout_height="48dp"
+        android:text="Calendar"
+        android:textColor="@color/beige"
+        android:textSize="20sp"
+        android:textStyle="bold"
         />
+    <!-- DROP DOWN MENU-->
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="48dp"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
         android:padding="8dp"
         android:layout_marginBottom="48dp"
         />
