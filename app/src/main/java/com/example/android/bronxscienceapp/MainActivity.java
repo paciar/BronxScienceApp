@@ -1,6 +1,6 @@
 package com.example.android.bronxscienceapp;
 
-// V 1.0.1
+// V 1.0.2
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
