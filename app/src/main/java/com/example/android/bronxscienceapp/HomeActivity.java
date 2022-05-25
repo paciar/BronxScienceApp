@@ -9,12 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.android.bronxscienceapp.Feeds.CalendarFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -23,9 +21,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -73,10 +68,10 @@ public class HomeActivity extends AppCompatActivity {
         });
          */
 
-        // When HomeActivity is started, it should open CalendarFragment by default.
+        // When HomeActivity is started, it should open FeedFragment by default.
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_container, CalendarFragment.newInstance("", ""));
+        fragmentTransaction.replace(R.id.frame_container, FeedFragment.newInstance("", ""));
         fragmentTransaction.commit();
 
         View view = sBottomNavigationView.findViewById(R.id.navigation_home);
@@ -89,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        selectedFragment = CalendarFragment.newInstance("","");
+                        selectedFragment = FeedFragment.newInstance("","");
                         break;
                     case R.id.navigation_courses:
                         selectedFragment = CoursesFragment.newInstance("","");
