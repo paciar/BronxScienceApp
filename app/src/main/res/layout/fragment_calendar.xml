@@ -3,22 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalendarFragment">
-
-    <!-- DROP DOWN MENU-->
-    <Spinner
-        android:id="@+id/feed"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="Calendar"
-        android:textColor="@color/beige"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-    <!-- DROP DOWN MENU-->
+    tools:context=".Feeds.CalendarFragment"
+    android:layout_marginTop="48dp"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="48dp"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

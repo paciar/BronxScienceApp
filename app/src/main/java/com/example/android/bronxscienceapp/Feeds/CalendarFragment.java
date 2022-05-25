@@ -1,12 +1,10 @@
-package com.example.android.bronxscienceapp;
+package com.example.android.bronxscienceapp.Feeds;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +22,7 @@ import android.widget.Spinner;
 import com.example.android.bronxscienceapp.CALENDAR_Adapter.FeedAdapter;
 import com.example.android.bronxscienceapp.CALENDAR_Common.HTTPDataHandler;
 import com.example.android.bronxscienceapp.CALENDAR_Model.RSSObject;
+import com.example.android.bronxscienceapp.R;
 import com.google.gson.Gson;
 
 import java.util.Arrays;
@@ -38,8 +37,6 @@ public class CalendarFragment extends Fragment {
 
     RecyclerView mRecyclerView;
     RSSObject mRSSObject;
-    Spinner mFeed;
-    Fragment mSelectedFragment;
 
     //RSS Link
     private final String RSS_link = "https://bxscience.edu/apps/events2/events_rss.jsp?id=0";
@@ -93,36 +90,6 @@ public class CalendarFragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-
-        // make drop down menu visible & set a listener
-        mFeed = (Spinner) view.findViewById(R.id.feed);
-        List<String> feedItems = Arrays.asList("Calendar", "News", "Daily Announcements", "Athletic News");
-        ArrayAdapter spinnerAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, feedItems);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mFeed.setAdapter(spinnerAdapter);
-
-        mFeed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                int spinnerPosition = mFeed.getSelectedItemPosition();
-                switch (spinnerPosition) {
-                    case 0:
-                        mSelectedFragment = CalendarFragment.newInstance("","");
-                        break;
-                    case 1:
-                        // selectedFragment[0] = NewsFragment.newInstance("","");
-                        break;
-                    case 2:
-                        // selectedFragment[0] = DailyAnnouncementsFragment.newInstance("","");
-                        break;
-                    case 3:
-                        // selectedFragment[0] = AthleticNewsFragment.newInstnace("","");
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}});
 
         loadRSS();
 
