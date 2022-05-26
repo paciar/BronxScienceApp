@@ -1,9 +1,8 @@
 package com.example.android.bronxscienceapp;
 
 import androidx.fragment.app.Fragment;
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CoursesFragment extends Fragment {
-    private Button mAddButton;
+    private Button mAddButton, mMajorButton;
     private CourseHelper mDatabase;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -72,7 +71,7 @@ public class CoursesFragment extends Fragment {
         boolean empty=allCourses.isEmpty();
         if (!empty) {
             recyclerView.setVisibility(View.VISIBLE);
-            ListAdapter mAdapter = new ListAdapter(allCourses,getActivity());
+            ListAdapter mAdapter = new ListAdapter(allCourses,getActivity(), true);
             recyclerView.setAdapter(mAdapter);
         }
         else {
@@ -84,9 +83,19 @@ public class CoursesFragment extends Fragment {
         mAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: fix back button
-                Intent intent=new Intent(getActivity(),AddCourse.class);
-                startActivity(intent);
+                AddCourse add = new AddCourse();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.clistscroll, add).addToBackStack(null).commit();
+            }
+        });
+
+        mMajorButton = (Button) view.findViewById(R.id.major_button);
+        mMajorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MajorFragment major = new MajorFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.clistscroll, major).addToBackStack(null).commit();
             }
         });
         return view;

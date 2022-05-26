@@ -14,10 +14,19 @@
 
         <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="520dp"
         android:layout_marginBottom="20dp"
         android:gravity="top"
         android:id="@+id/listRecyclerView" />
+
+        <Button
+            android:id="@+id/major_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Major"
+            android:layout_toLeftOf="@id/add_button"
+            android:layout_below="@id/listRecyclerView"
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:id="@+id/add_button"

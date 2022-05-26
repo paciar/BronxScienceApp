@@ -5,13 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class CourseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Course";
+    public static final String DATABASE_NAME = "CourseOfferings";
     public static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME = "BXSCI_Roster";
     private static final String TEXT_TYPE = " TEXT";
@@ -64,7 +61,7 @@ public class CourseHelper extends SQLiteOpenHelper {
     //get list of all courses with keyword of major
     // assume that each course can only have one major for now
     public ArrayList<Course> getMajorList(String selectedMajor) {
-        String sql = "select * from " + TABLE_NAME + "where major="+selectedMajor;
+        String sql = "select * from " + TABLE_NAME + " where major="+"\""+selectedMajor+"\"";
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Course> majorList = new ArrayList<>();
         Cursor cursor = db.rawQuery(sql, null);
@@ -88,15 +85,15 @@ public class CourseHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<String> getMajorChoices(){
-        String sql ="SELECT DISTINCT MAJOR FROM "+TABLE_NAME;
+        String sql = "SELECT DISTINCT "+CourseContract.FeedEntry.MAJOR+" FROM "+TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<String> majorChoice = new ArrayList<>();
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor.moveToFirst()) {
             do {
-                int id=Integer.parseInt(cursor.getString(0));
-                String name=cursor.getString(cursor.getColumnIndexOrThrow(CourseContract.FeedEntry.NAME));
-                majorChoice.add(name);
+                //int id=Integer.parseInt(cursor.getString(0));
+                String major=cursor.getString(cursor.getColumnIndexOrThrow(CourseContract.FeedEntry.MAJOR));
+                majorChoice.add(major);
             }
             while (cursor.moveToNext());
         }
@@ -116,6 +113,12 @@ public class CourseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_NAME, null, values);
+    }
+
+    void deleteCourse(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME,"courseid=?",new String[]{id});
+        db.close();
     }
 
     public void onCreate(SQLiteDatabase db) {

@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:orientation="vertical"
-    android:clickable="true"
-    android:focusable="true"
-    android:background="@color/white">
+    tools:context=".CoursesFragment"
+    android:id="@+id/add_page">
 
-    <EditText
-        android:id="@+id/edit_name"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:hint="Course Name"
-        android:maxLines="1"
-        android:singleLine="true"/>
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@color/white"
+        android:id="@+id/add">
 
-    <EditText
-        android:id="@+id/edit_des"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:hint="Course Description"
-        android:maxLines="10"
-        android:singleLine="false"/>
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:hint="Course Name"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
-    <EditText
-        android:id="@+id/edit_pre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:hint="Course Prerequisite"
-        android:maxLines="10"
-        android:singleLine="false"/>
+        <EditText
+            android:id="@+id/edit_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Course Description"
+            android:maxLines="10"
+            android:singleLine="false"/>
 
-    <EditText
-        android:id="@+id/edit_major"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:hint="Major"
-        android:maxLines="1"
-        android:singleLine="true"/>
+        <EditText
+            android:id="@+id/edit_pre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Course Prerequisite"
+            android:maxLines="10"
+            android:singleLine="false"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Course"
-        android:id="@+id/add_button"/>
+        <EditText
+            android:id="@+id/edit_major"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Major"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/back_button"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Course"
+            android:id="@+id/add_button"/>
 
-</LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/back_button"/>
+
+    </LinearLayout>
+
+</FrameLayout>

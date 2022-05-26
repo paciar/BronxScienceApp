@@ -14,10 +14,12 @@ import java.util.ArrayList;
 class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
     private Context context;
     private ArrayList<Course> CourseItems;
+    private boolean allCourses;
 
-    public ListAdapter(ArrayList<Course> listItems, Context context) {
+    public ListAdapter(ArrayList<Course> listItems, Context context, boolean all) {
         this.context=context;
         this.CourseItems=listItems;
+        this.allCourses=all;
     }
 
     @NonNull
@@ -60,13 +62,16 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
         }
 
         public void onClick(View view) {
-            Bundle bundle= new Bundle();
-            bundle.putInt("position",getAdapterPosition());
-            AppCompatActivity activity=(AppCompatActivity) context;
-            CourseDetailFragment frag=new CourseDetailFragment();
-            frag.setArguments(bundle);
-            activity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.clistscroll,frag).addToBackStack(null).commit();
+            if(allCourses) {
+                Bundle bundle= new Bundle();
+                bundle.putInt("position",getAdapterPosition());
+                bundle.putString("id",CourseItems.get(getAdapterPosition()).getId());
+                AppCompatActivity activity = (AppCompatActivity) context;
+                CourseDetailFragment frag = new CourseDetailFragment();
+                frag.setArguments(bundle);
+                activity.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.clistscroll, frag).addToBackStack(null).commit();
+            }
         }
     }
 }

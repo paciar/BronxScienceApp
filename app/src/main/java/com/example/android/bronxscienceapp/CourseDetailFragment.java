@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class CourseDetailFragment extends Fragment {
     private TextView mViewName, mViewDes, mViewPre,mViewMajor;
-    private Button trade, back;
+    private Button delete, back;
     private ArrayList<Course> mItemList;
 
     public CourseDetailFragment(){
@@ -25,6 +25,7 @@ public class CourseDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_course_detail,container,false);
         CourseHelper mDatabase=new CourseHelper(getActivity());
         int position=getArguments().getInt("position");
+        String id=getArguments().getString("id");
 
         mItemList= mDatabase.getCourseList();
         Course c=mItemList.get(position);
@@ -38,12 +39,22 @@ public class CourseDetailFragment extends Fragment {
         mViewPre.setText("Prerequisite: "+c.getPrerequisite());
         mViewMajor.setText("Major: "+c.getMajor());
 
+        delete = (Button) view.findViewById(R.id.delete_button);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                mDatabase.deleteCourse(id);
+                getFragmentManager().popBackStack();
+            }
+        });
+
         back = (Button) view.findViewById(R.id.back_button);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                getFragmentManager().popBackStackImmediate();
+                getFragmentManager().popBackStack();
             }
         });
 

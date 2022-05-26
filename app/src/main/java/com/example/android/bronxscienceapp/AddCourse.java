@@ -1,37 +1,31 @@
 package com.example.android.bronxscienceapp;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import androidx.appcompat.app.AppCompatActivity;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
-public class AddCourse extends AppCompatActivity {
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class AddCourse extends Fragment {
     private EditText mCourseName,mCourseDes,mCoursePre,mCourseMajor;
     private Button add,back;
     private CourseHelper mDatabase;
 
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_item);
-        mDatabase = new CourseHelper(this);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
+        View view=inflater.inflate(R.layout.add_item, container,false);
+        mDatabase = new CourseHelper(getActivity());
 
-        mCourseName=findViewById(R.id.edit_name);
-        mCourseDes=findViewById(R.id.edit_des);
-        mCoursePre=findViewById(R.id.edit_pre);
-        mCourseMajor=findViewById(R.id.edit_major);
+        mCourseName=view.findViewById(R.id.edit_name);
+        mCourseDes=view.findViewById(R.id.edit_des);
+        mCoursePre=view.findViewById(R.id.edit_pre);
+        mCourseMajor=view.findViewById(R.id.edit_major);
 
-        add=findViewById(R.id.add_button);
+        add=view.findViewById(R.id.add_button);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,24 +42,26 @@ public class AddCourse extends AppCompatActivity {
                     //TODO: set taken and qualified to false for now, later have methods to check
                     Course c = new Course(name,des,pre,major,false,false);
                     mDatabase.addCourse(c);
-                    finish();
-                    getFragmentManager().popBackStackImmediate();
+
+                    //TODO: fix view problem
+                    getActivity().getSupportFragmentManager().popBackStack();
                 }
             }
         });
 
-        back=findViewById(R.id.back_button);
+        back=view.findViewById(R.id.back_button);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getFragmentManager().popBackStackImmediate();
             }
         });
+        return view;
     }
 
     public void showMessage (String title, String message)
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(message);

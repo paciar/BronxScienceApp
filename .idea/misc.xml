@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/add_item.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_home.xml" value="0.1796875" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/add_item.xml" value="0.13580246913580246" />
         <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/course_list_item.xml" value="0.1597222222222222" />
-        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_course_detail.xml" value="0.1465811965811966" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_course_detail.xml" value="0.1" />
         <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_courses.xml" value="0.1" />
-        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_major.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_major.xml" value="0.1" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_teacher_schedules.xml" value="0.1796875" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/menu/sidebar_navigation_menu.xml" value="0.1796875" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_home.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_courses.xml" value="0.17552083333333332" />
