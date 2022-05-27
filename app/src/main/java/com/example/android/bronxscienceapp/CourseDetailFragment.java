@@ -45,7 +45,9 @@ public class CourseDetailFragment extends Fragment {
             public void onClick(View v)
             {
                 mDatabase.deleteCourse(id);
-                getFragmentManager().popBackStack();
+                CoursesFragment coursesFragment = CoursesFragment.newInstance("","");
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_container,coursesFragment).addToBackStack(null).commit();
             }
         });
 

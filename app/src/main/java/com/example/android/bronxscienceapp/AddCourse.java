@@ -43,8 +43,9 @@ public class AddCourse extends Fragment {
                     Course c = new Course(name,des,pre,major,false,false);
                     mDatabase.addCourse(c);
 
-                    //TODO: fix view problem
-                    getActivity().getSupportFragmentManager().popBackStack();
+                    CoursesFragment coursesFragment = CoursesFragment.newInstance("","");
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_container,coursesFragment).addToBackStack(null).commit();
                 }
             }
         });
