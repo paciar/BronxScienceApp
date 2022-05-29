@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mlistscroll"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/white"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/major"
+        android:text="Major"
+        android:textSize="20dp"
+        android:paddingBottom="30dp"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:id="@+id/major_selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#b4f0e6"
+        android:layout_below="@id/major"
+        android:padding="15dp"
+        style="@style/Widget.AppCompat.DropDownItem.Spinner"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listRecyclerView"
+        android:paddingTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@id/major_selection"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/back_button"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/listRecyclerView"/>
+
+</RelativeLayout>
