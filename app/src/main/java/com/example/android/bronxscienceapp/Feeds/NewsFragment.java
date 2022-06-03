@@ -16,9 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.bronxscienceapp.CALENDAR_Adapter.FeedAdapter;
-import com.example.android.bronxscienceapp.CALENDAR_Common.HTTPDataHandler;
-import com.example.android.bronxscienceapp.CALENDAR_Model.RSSObject;
+import com.example.android.bronxscienceapp.Adapter.FeedAdapter;
+import com.example.android.bronxscienceapp.Common.HTTPDataHandler;
+import com.example.android.bronxscienceapp.Model.RSSObject;
 import com.example.android.bronxscienceapp.R;
 import com.google.gson.Gson;
 

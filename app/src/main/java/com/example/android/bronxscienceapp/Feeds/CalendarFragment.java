@@ -15,18 +15,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
-import com.example.android.bronxscienceapp.CALENDAR_Adapter.FeedAdapter;
-import com.example.android.bronxscienceapp.CALENDAR_Common.HTTPDataHandler;
-import com.example.android.bronxscienceapp.CALENDAR_Model.RSSObject;
+import com.example.android.bronxscienceapp.Adapter.FeedAdapter;
+import com.example.android.bronxscienceapp.Common.HTTPDataHandler;
+import com.example.android.bronxscienceapp.Model.RSSObject;
 import com.example.android.bronxscienceapp.R;
 import com.google.gson.Gson;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.

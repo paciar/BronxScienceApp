@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.CALENDAR_Interface;
+package com.example.android.bronxscienceapp.Interface;
 
 import android.view.View;
 

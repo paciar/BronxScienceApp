@@ -1,4 +1,4 @@
-package com.example.android.bronxscienceapp.CALENDAR_Model;
+package com.example.android.bronxscienceapp.Model;
 
 import java.util.List;
 
