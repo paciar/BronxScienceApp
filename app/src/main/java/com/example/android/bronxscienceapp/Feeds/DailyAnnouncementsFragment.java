@@ -24,16 +24,16 @@ import com.google.gson.Gson;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CalendarFragment#newInstance} factory method to
+ * Use the {@link DailyAnnouncementsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CalendarFragment extends Fragment {
+public class DailyAnnouncementsFragment extends Fragment {
 
     RecyclerView mRecyclerView;
     RSSObject mRSSObject;
 
     //RSS Link
-    private final String RSS_link = "https://bxscience.edu/apps/events2/events_rss.jsp?id=0";
+    private final String RSS_link = "https://bxscience.edu/apps/news/news_rss.jsp?id=17";
     private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
     // TODO: Rename parameter arguments, choose names that match
@@ -45,7 +45,7 @@ public class CalendarFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CalendarFragment() {
+    public DailyAnnouncementsFragment() {
         // Required empty public constructor
     }
 
@@ -55,11 +55,11 @@ public class CalendarFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CalendarFragment.
+     * @return A new instance of fragment DailyAnnouncementsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CalendarFragment newInstance(String param1, String param2) {
-        CalendarFragment fragment = new CalendarFragment();
+    public static DailyAnnouncementsFragment newInstance(String param1, String param2) {
+        DailyAnnouncementsFragment fragment = new DailyAnnouncementsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -79,7 +79,7 @@ public class CalendarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_calendar, container, false);
+        View view = inflater.inflate(R.layout.fragment_daily_announcements, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext(), LinearLayoutManager.VERTICAL, false);
@@ -89,7 +89,6 @@ public class CalendarFragment extends Fragment {
 
         return view;
     }
-
     private void loadRSS() {
         AsyncTask<String, String, String> loadRSSAsync = new AsyncTask<String, String, String>() {
 

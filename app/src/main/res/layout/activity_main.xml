@@ -10,32 +10,33 @@
 
     <!-- FRONT END DESIGN WIP -->
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The Bronx High School of Science"
+        android:textColor="@color/dark_green"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/school_name"
+        android:textSize="25sp"
+        />
+
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/bxsci_logo"
         android:layout_centerHorizontal="true"
-        android:id="@+id/bxsci_logo"/>
-
-    <TextView
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bxsci_logo"
-        android:layout_marginBottom="15dp"
-        android:gravity="center"
-        android:text="Welcome Bronx Science!"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/dark_green"/>
+        android:id="@+id/bxsci_logo"
+        android:layout_below="@id/school_name"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/google"
         android:layout_centerInParent="true"
-        android:id="@+id/google"
-        android:layout_below="@id/login"/>
+        android:id="@+id/google" />
 
     <!-- Bottom Text Credits (WIP)
     <TextView

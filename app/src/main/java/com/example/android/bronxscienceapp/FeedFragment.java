@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.android.bronxscienceapp.Feeds.AthleticNewsFragment;
 import com.example.android.bronxscienceapp.Feeds.CalendarFragment;
+import com.example.android.bronxscienceapp.Feeds.DailyAnnouncementsFragment;
+import com.example.android.bronxscienceapp.Feeds.NewsFragment;
 
 import java.util.Arrays;
 import java.util.List;
@@ -75,7 +79,7 @@ public class FeedFragment extends Fragment {
 
         mSelectedFragment = CalendarFragment.newInstance("","");
 
-        // make drop down menu visible & set a listener
+        // Make drop down menu visible & set a listener
         mFeed = (Spinner) view.findViewById(R.id.feed);
         List<String> feedItems = Arrays.asList("Calendar", "News", "Daily Announcements", "Athletic News");
         ArrayAdapter spinnerAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, feedItems);
@@ -86,20 +90,20 @@ public class FeedFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 int spinnerPosition = mFeed.getSelectedItemPosition();
+                Log.i("spinnerPosition", Integer.toString(spinnerPosition));
                 switch (spinnerPosition) {
                     case 0:
-                        mSelectedFragment = CalendarFragment.newInstance("","");
+                        mSelectedFragment = CalendarFragment.newInstance("", "");
                         break;
                     case 1:
-                        // selectedFragment[0] = NewsFragment.newInstance("","");
+                        mSelectedFragment = NewsFragment.newInstance("", "");
                         break;
                     case 2:
-                        // selectedFragment[0] = DailyAnnouncementsFragment.newInstance("","");
-                        break;
+                        mSelectedFragment = DailyAnnouncementsFragment.newInstance("","");
                     case 3:
-                        // selectedFragment[0] = AthleticNewsFragment.newInstnace("","");
-                        break;
+                        mSelectedFragment = AthleticNewsFragment.newInstance("","");
                 }
+                getFragmentManager().beginTransaction().replace(R.id.spinner_layout, mSelectedFragment, null).addToBackStack(null).commit();
             }
 
             @Override
