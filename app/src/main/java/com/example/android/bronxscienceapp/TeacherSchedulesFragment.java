@@ -65,14 +65,14 @@ public class TeacherSchedulesFragment extends Fragment implements MyRecyclerView
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         // data to populate the RecyclerView with
-        ArrayList<String> animalNames = new ArrayList<>();
-        animalNames.add("Science - Ms Chambers - Tuesday Wedensday ");
-        animalNames.add("Math - Ms Qiu - Wednesday Thursday");
-        animalNames.add("Math - Ms Lerohl - Wednesday Thursday");
+        ArrayList<String> SGIDays = new ArrayList<>();
+        SGIDays.add("Ms. Chambers - Tuesday 9&10, Wednesday 9");
+        SGIDays.add("Ms. Qiu - Wednesday 9, Thursday 9&10");
+        SGIDays.add("Ms. Lerohl - Wednesday & Thursday 9&10");
         // set up the RecyclerView
-        RecyclerView recyclerView = getView().findViewById(R.id.rvAnimals);
+        RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new MyRecyclerViewAdapter(getActivity(), animalNames);
+        adapter = new MyRecyclerViewAdapter(getActivity(), SGIDays);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
