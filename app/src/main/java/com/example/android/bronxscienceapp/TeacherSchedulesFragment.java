@@ -69,6 +69,7 @@ public class TeacherSchedulesFragment extends Fragment implements MyRecyclerView
         SGIDays.add("Ms. Chambers - Tuesday 9&10, Wednesday 9");
         SGIDays.add("Ms. Qiu - Wednesday 9, Thursday 9&10");
         SGIDays.add("Ms. Lerohl - Wednesday & Thursday 9&10");
+        SGIDays.add("Ms. Brooks - Tuesday 9, Wednesday 9&10");
         // set up the RecyclerView
         RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
