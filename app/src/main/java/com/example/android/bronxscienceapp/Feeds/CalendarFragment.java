@@ -33,7 +33,7 @@ public class CalendarFragment extends Fragment {
     RSSObject mRSSObject;
 
     //RSS Link
-    private final String RSS_link = "https://bxscience.edu/apps/events2/events_rss.jsp?id=0";
+    private final String RSS_link = "https://bxscience.edu/apps/events/events_rss.jsp?id=0";
     private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
     // TODO: Rename parameter arguments, choose names that match

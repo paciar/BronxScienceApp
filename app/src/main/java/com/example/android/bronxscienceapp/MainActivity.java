@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
         google_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SignIn();
+                // SignIn();
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
             }
         });
     }
