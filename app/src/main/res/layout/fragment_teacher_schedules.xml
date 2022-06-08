@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAnimals"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="520dp"
         android:layout_marginBottom="20dp"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="+"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/rvAnimals"/>
+        android:layout_below="@id/recycler_view"/>
 
     <Button
         android:id="@+id/subject_button"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="Subject"
         android:layout_toLeftOf="@id/add_button1"
-        android:layout_below="@id/rvAnimals"
+        android:layout_below="@id/recycler_view"
         android:layout_marginRight="10dp"/>
 
 </RelativeLayout>
