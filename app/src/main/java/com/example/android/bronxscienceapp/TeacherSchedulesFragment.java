@@ -2,18 +2,24 @@ package com.example.android.bronxscienceapp;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TeacherSchedulesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class TeacherSchedulesFragment extends Fragment {
+import java.util.ArrayList;
+
+
+public class TeacherSchedulesFragment extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
+    private Button mAddButton1, mSubjectButton;
+    MyRecyclerViewAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,9 +62,52 @@ public class TeacherSchedulesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        // data to populate the RecyclerView with
+        ArrayList<String> animalNames = new ArrayList<>();
+        animalNames.add("Science - Ms Chambers - Tuesday Wedensday ");
+        animalNames.add("Math - Ms Qiu - Wednesday Thursday");
+        animalNames.add("Math - Ms Lerohl - Wednesday Thursday");
+        // set up the RecyclerView
+        RecyclerView recyclerView = getView().findViewById(R.id.rvAnimals);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new MyRecyclerViewAdapter(getActivity(), animalNames);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
+
+        mAddButton1 = (Button) view.findViewById(R.id.add_button1);
+        mAddButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddCourse add = new AddCourse();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.clistscroll, add).addToBackStack(null).commit();
+            }
+        });
+
+        mSubjectButton = (Button) view.findViewById(R.id.subject_button);
+        mSubjectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MajorFragment major = new MajorFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.clistscroll, major).addToBackStack(null).commit();
+            }
+        });
+    }
+
+        @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teacher_schedules, container, false);
+        View view = inflater.inflate(R.layout.fragment_teacher_schedules, container, false);
+
+
+        return view;
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(getActivity(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 }

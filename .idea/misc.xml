@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
->>>>>>> HEAD
-        <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_home.xml" value="0.22" />
-        <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_calendar.xml" value="0.17552083333333332" />
-=======
+        <entry key="..\:/Users/Joe Shmo/Documents/GitHub/BronxScienceApp/app/src/main/res/layout/add_item.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Joe Shmo/Documents/GitHub/BronxScienceApp/app/src/main/res/layout/course_list_item.xml" value="0.1" />
+        <entry key="..\:/Users/Joe Shmo/Documents/GitHub/BronxScienceApp/app/src/main/res/layout/fragment_athletic_news.xml" value="0.24003623188405798" />
+        <entry key="..\:/Users/Joe Shmo/Documents/GitHub/BronxScienceApp/app/src/main/res/layout/fragment_course_detail.xml" value="0.1" />
+        <entry key="..\:/Users/Joe Shmo/Documents/GitHub/BronxScienceApp/app/src/main/res/layout/fragment_courses.xml" value="0.1" />
+        <entry key="..\:/Users/Joe Shmo/Documents/GitHub/BronxScienceApp/app/src/main/res/layout/fragment_teacher_schedules.xml" value="0.1" />
+        <entry key="..\:/Users/Joe Shmo/Documents/GitHub/BronxScienceApp/app/src/main/res/layout/recyclerview_row.xml" value="0.1" />
         <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_home.xml" value="0.1796875" />
         <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/add_item.xml" value="0.13580246913580246" />
@@ -21,7 +23,7 @@
         <entry key="..\:/Users/chenc/AndroidStudioProjects/BronxScienceApp/app/src/main/res/menu/sidebar_navigation_menu.xml" value="0.1796875" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_home.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
->>>>>>> major_selection
+        <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_calendar.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_courses.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_feed.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/pacia/AndroidStudioProjects/BronxScienceApp/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />

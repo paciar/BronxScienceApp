@@ -70,4 +70,3 @@ public class AddCourse extends Fragment {
     }
 
 }
-
